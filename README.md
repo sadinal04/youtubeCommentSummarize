@@ -1,138 +1,107 @@
-# 🎥 YouTube Comment Summarizer
+# 🎥 YouTube Comment Summarizer using Fine-Tuned IndoT5
 
 ## 📌 Deskripsi Project
 
-**YouTube Comment Summarizer** adalah aplikasi yang dirancang untuk mengekstrak dan merangkum komentar dari video YouTube secara otomatis. Project ini bertujuan membantu pengguna memahami opini, feedback, dan insight dari banyak komentar tanpa harus membaca semuanya secara manual.
-
-Sistem memanfaatkan teknik **Natural Language Processing (NLP)** untuk melakukan preprocessing teks dan menghasilkan ringkasan yang informatif dan relevan.
+**YouTube Comment Summarizer** adalah sistem berbasis **Natural Language Processing (NLP)** yang dirancang untuk menghasilkan ringkasan otomatis dari komentar video YouTube berbahasa Indonesia. Project ini menggunakan model **IndoT5 (`cahya/t5-base-indonesian-summarization-cased`)** yang di-*fine-tuning* menggunakan dataset komentar YouTube sehingga mampu menghasilkan ringkasan yang lebih relevan dan informatif.
 
 ---
 
 ## 🎯 Tujuan
 
-* Mempermudah analisis komentar YouTube dalam jumlah besar
-* Menghasilkan ringkasan otomatis dari opini pengguna
-* Mengimplementasikan teknik NLP pada data real-world
+- Mengotomatisasi proses peringkasan komentar YouTube.
+- Membantu memahami opini publik tanpa membaca ribuan komentar.
+- Mengimplementasikan proses fine-tuning model Transformer untuk tugas text summarization.
 
 ---
 
 ## ⚙️ Teknologi yang Digunakan
 
-* Python
-* YouTube Data API
-* Pandas
-* NLTK / Sastrawi (Text Preprocessing)
-* Scikit-learn / Sumy / Transformers (Summarization - opsional tergantung implementasi)
-* Jupyter Notebook / Script Python
+- Python
+- PyTorch
+- Hugging Face Transformers
+- IndoT5 (`cahya/t5-base-indonesian-summarization-cased`)
+- YouTube Data API
+- Pandas
+- NLTK
+- Sastrawi
+- Scikit-learn
+- Jupyter Notebook
 
 ---
 
 ## 🧠 Cara Kerja Sistem
 
-### 1. Ekstraksi Data
+### 1. Data Collection
+Mengambil komentar dari video YouTube menggunakan **YouTube Data API**.
 
-* Mengambil komentar dari video YouTube menggunakan **YouTube API**
+### 2. Text Preprocessing
+- Case Folding
+- Cleaning Text
+- Stopword Removal
+- Tokenization
+- Stemming
 
-### 2. Preprocessing
+### 3. Fine-Tuning
+Melakukan fine-tuning model **IndoT5** menggunakan dataset komentar YouTube beserta ringkasan sebagai target.
 
-* Case folding (lowercase)
-* Menghapus tanda baca dan angka
-* Stopword removal
-* Tokenisasi & stemming
-
-### 3. Summarization
-
-* Mengolah kumpulan komentar
-* Menghasilkan ringkasan inti dari opini pengguna
+### 4. Inference
+Model menghasilkan ringkasan otomatis yang mewakili opini utama pengguna.
 
 ---
 
 ## 📊 Dataset
 
-Dataset berupa komentar dari video YouTube yang diambil secara langsung menggunakan API.
-
-Data yang digunakan meliputi:
-
-* Teks komentar
-* Username (opsional)
-* Tanggal komentar
+Dataset terdiri dari komentar video YouTube berbahasa Indonesia yang dikumpulkan menggunakan **YouTube Data API**. Setiap data dipasangkan dengan ringkasan sebagai target untuk proses fine-tuning model.
 
 ---
 
-## 🚀 Fitur Utama
+## 🚀 Fitur
 
-* 🔽 Mengambil komentar dari video YouTube
-* 🧹 Preprocessing teks otomatis
-* 🧠 Ringkasan komentar secara otomatis
-* 📊 Membantu memahami opini publik dengan cepat
+- 📥 Mengambil komentar dari YouTube
+- 🧹 Preprocessing teks otomatis
+- 🤖 Fine-tuning model IndoT5
+- 📝 Ringkasan komentar secara otomatis
+- 📊 Membantu analisis opini publik
 
 ---
 
-## 🖥️ Cara Menjalankan Project
+## 🖥️ Cara Menjalankan
 
-1. Clone repository:
-
-```bash id="s9q2pd"
+```bash
 git clone https://github.com/sadinal04/youtubeCommentSummarize.git
-```
-
-2. Masuk ke folder project:
-
-```bash id="h3k2lx"
 cd youtubeCommentSummarize
-```
-
-3. Install dependencies:
-
-```bash id="t8zk1w"
 pip install -r requirements.txt
-```
-
-4. Jalankan program / notebook:
-
-```bash id="d9q8vm"
 jupyter notebook
-```
-
-atau
-
-```bash id="a2v6np"
-python main.py
 ```
 
 ---
 
 ## 📈 Output
 
-* Ringkasan dari kumpulan komentar YouTube
-* Insight umum dari opini pengguna
+- Ringkasan otomatis dari kumpulan komentar YouTube.
+- Insight utama mengenai opini pengguna terhadap suatu video.
 
 ---
 
-## 📌 Keunggulan Project
+## 📌 Keunggulan
 
-* Menghemat waktu membaca ribuan komentar
-* Menggunakan NLP untuk analisis teks otomatis
-* Dapat diterapkan untuk analisis opini publik
+- Menggunakan model Transformer yang telah di-fine-tuning.
+- Mendukung ringkasan komentar berbahasa Indonesia.
+- Dapat diterapkan untuk analisis opini publik dan social media analytics.
 
 ---
 
 ## 🔮 Pengembangan Selanjutnya
 
-* Sentiment analysis (positif, negatif, netral)
-* Visualisasi hasil (wordcloud, grafik)
-* Deploy ke web app
-* Integrasi dengan multiple video
+- Sentiment Analysis
+- Aspect-Based Sentiment Analysis
+- Web Deployment menggunakan Streamlit/FastAPI
+- Ringkasan Multi-Video
+- Visualisasi Insight Dashboard
 
 ---
 
 ## 👤 Author
 
-**Sadinal Mufti**
-Data Science | Machine Learning | AI Enthusiast
-
----
-
-## 📬 Catatan
-
-Project ini merupakan implementasi konsep **Natural Language Processing (NLP)** dalam menganalisis data komentar dari media sosial (YouTube).
+**Sadinal Mufti**  
+Data Scientist | Machine Learning Engineer | AI Enthusiast
